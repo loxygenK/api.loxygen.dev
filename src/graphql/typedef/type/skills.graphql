@@ -1,0 +1,33 @@
+enum SkillLevel {
+  # Interested to the skill, but completely not available
+  INTERESTED,
+
+  # learning the skill, still not available for works
+  LEARNING,
+
+  # practicing the skill, maybe available for the small work
+  PRACTICING,
+
+  # the skill is available for the work, though not advanced
+  AVAILABLE,
+
+  # I think I can say I'm good at the skill
+  ADVANCED
+}
+
+enum SkillGroup {
+  FRONTEND,
+  BACKEND,
+  INFRASTRUCTURE,
+  ENVIRONMENTAL
+}
+
+type Skill {
+  name: String!
+  level: SkillLevel!
+  group: SkillGroup!
+}
+
+extend type Query {
+  skills(group: SkillGroup): [Skill!]!
+}

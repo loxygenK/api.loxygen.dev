@@ -1,0 +1,20 @@
+type Work {
+  name: String!
+  used: [String!]!
+  description: String!
+  contest: String # nullable
+  url: String # nullable
+  checks: [String!]!
+}
+
+type Trace {
+  year: Int!
+  month: Int!
+  content: String!
+  prize: String!
+}
+
+extend type Query {
+  works: [Work!]!
+  traces: [Trace!]!
+}

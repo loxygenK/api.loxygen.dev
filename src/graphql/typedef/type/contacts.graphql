@@ -1,0 +1,9 @@
+type Contact {
+  name: String!
+  identity: String # nullable
+  link: String!
+}
+
+extend type Query {
+  contacts: [Contact!]!
+}

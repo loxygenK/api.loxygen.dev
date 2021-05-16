@@ -1,0 +1,3 @@
+node_modules/
+src/graphql/typedef/graphql.ts
+src/graphql/typedef/schema.graphql

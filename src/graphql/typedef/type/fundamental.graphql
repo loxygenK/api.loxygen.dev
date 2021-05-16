@@ -1,0 +1,15 @@
+type Fundamental {
+  name: String!
+  aka: String!
+  belong: [Belonging!]!
+  comment: String!
+}
+
+type Belonging {
+  name: String!
+  class: String!
+}
+
+extend type Query {
+  fundamental: Fundamental!
+}

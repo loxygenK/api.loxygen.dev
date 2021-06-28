@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - $ref: 'ref/create-env.yaml'
+
+      - name: Execute eslint
+        run: yarn run lint:eslint
+
+  stylelint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - $ref: 'ref/create-env.yaml'
+
+      - name: Execute stylelint
+        run: yarn run lint:stylelint
+
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - $ref: 'ref/create-env.yaml'
+
+      - name: Execute prettier
+        run: yarn run lint:prettier

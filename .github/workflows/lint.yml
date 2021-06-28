@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - $ref: 'ref/create-env.yaml'
+      - $ref: 'ref/create-env.yaml#/steps'
 
       - name: Execute eslint
         run: yarn run lint:eslint
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - $ref: 'ref/create-env.yaml'
+      - $ref: 'ref/create-env.yaml#/steps'
 
       - name: Execute stylelint
         run: yarn run lint:stylelint
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - $ref: 'ref/create-env.yaml'
+      - $ref: 'ref/create-env.yaml#/steps'
 
       - name: Execute prettier
         run: yarn run lint:prettier

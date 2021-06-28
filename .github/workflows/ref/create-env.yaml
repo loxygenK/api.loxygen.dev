@@ -1,25 +1,21 @@
-checkout:
-  uses: actions/checkout@v2
+steps:
+  - uses: actions/checkout@v2
 
-cache-dir:
-  name: Get yarn cache directory path
-  id: yarn-cache-dir-path
-  run: echo "::set-output name=dir::$(yarn cache dir)"
+  - name: Get yarn cache directory path
+    id: yarn-cache-dir-path
+    run: echo "::set-output name=dir::$(yarn cache dir)"
 
-caching:
-  uses: actions/cache@v2
-  id: yarn-cache
-  with:
-    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-    restore-keys: |
-      ${{ runner.os }}-yarn-
+  - uses: actions/cache@v2
+    id: yarn-cache
+    with:
+      path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+      key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      restore-keys: |
+        ${{ runner.os }}-yarn-
 
-setup-node:
-  uses: actions/setup-node@v1
-  with:
-    node-version: 14.x
+  - uses: actions/setup-node@v1
+    with:
+      node-version: 14.x
 
-deps:
-  name: Install dependencies
-  run: yarn install --frozen-lockfile
+  - name: Install dependencies
+    run: yarn install --frozen-lockfile
